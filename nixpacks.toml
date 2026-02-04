@@ -2,16 +2,10 @@
 nixPkgs = ['nodejs_18', 'python3']
 
 [phases.install]
-cmds = [
-  'cd server',
-  'npm install'
-]
+cmds = ['npm install']
 
-[phases.build]
-cmds = [
-  'cd server', 
-  'npm run build'
-]
+[phases.build] 
+cmds = ['npm run build:server']
 
 [start]
-cmd = 'cd server && npm start'
+cmd = 'npm start'
