@@ -1,11 +1,10 @@
 [phases.setup]
-nixPkgs = ['nodejs_20', 'python3', 'python3-dev', 'gcc', 'g++', 'make']
-nixpkgsArchive = 'ba913eda2df8eb72147259189d55932012df6301'
+nixPkgs = ['nodejs_18']
 
 [phases.install]
 cmds = [
   'cd server',
-  'npm install --verbose'
+  'npm ci --omit=dev --prefer-offline'
 ]
 
 [phases.build]
