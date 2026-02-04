@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 18px;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+    font-family: 'Inter', 'Open Sans', 'Roboto', system-ui, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  /* High contrast focus states for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+}
+
+@layer components {
+  /* Touch-friendly button base */
+  .btn {
+    @apply min-h-touch min-w-touch px-6 py-3 rounded-lg font-medium
+           transition-colors duration-200 inline-flex items-center justify-center;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary-600 text-white hover:bg-secondary-700 active:bg-secondary-800;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary-600 text-primary-600
+           hover:bg-primary-50 active:bg-primary-100;
+  }
+
+  /* Card component */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6;
+  }
+
+  /* Input styles */
+  .input {
+    @apply min-h-touch w-full px-4 py-3 border border-gray-300 rounded-lg
+           text-lg focus:border-primary-500 focus:ring-2 focus:ring-primary-200
+           placeholder:text-gray-400;
+  }
+
+  /* Label styles */
+  .label {
+    @apply block text-lg font-medium text-gray-700 mb-2;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-4 bg-gray-200 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-primary-500 transition-all duration-300;
+  }
+
+  /* Status indicators */
+  .status-success {
+    @apply text-success bg-green-50 border-green-200;
+  }
+
+  .status-warning {
+    @apply text-warning bg-yellow-50 border-yellow-200;
+  }
+
+  .status-danger {
+    @apply text-danger bg-red-50 border-red-200;
+  }
+}
+
+/* Font size adjustment classes for accessibility */
+.font-size-normal {
+  font-size: 18px;
+}
+
+.font-size-large {
+  font-size: 20px;
+}
+
+.font-size-larger {
+  font-size: 22px;
+}
