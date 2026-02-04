@@ -101,7 +101,7 @@ export const acceptInvite = async (
   next: NextFunction
 ) => {
   try {
-    const { token } = req.params;
+    const _token = req.params.token;
 
     // TODO: Verify token and add user to family
 
@@ -120,7 +120,8 @@ export const removeMember = async (
   next: NextFunction
 ) => {
   try {
-    const { id, memberId } = req.params;
+    const _id = req.params.id;
+    const _memberId = req.params.memberId;
 
     // TODO: Remove member from family
 
@@ -139,8 +140,8 @@ export const leaveFamily = async (
   next: NextFunction
 ) => {
   try {
-    const { id } = req.params;
-    const userId = req.userId;
+    const _id = req.params.id;
+    const _userId = req.userId;
 
     // TODO: Remove user from family
 

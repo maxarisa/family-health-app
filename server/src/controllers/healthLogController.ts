@@ -175,7 +175,7 @@ export const logBloodPressure = async (
 ) => {
   try {
     const userId = req.userId;
-    const { systolic, diastolic, pulse, context, notes, loggedAt } = req.body;
+    const { systolic, diastolic, pulse, notes, loggedAt } = req.body;
 
     if (!userId) {
       throw new AppError('User ID not found in request', 401);
@@ -191,7 +191,6 @@ export const logBloodPressure = async (
       systolic: parseInt(systolic),
       diastolic: parseInt(diastolic),
       pulse: pulse ? parseInt(pulse) : null,
-      notes: context || null,
       notes: notes || null,
       loggedAt: loggedAt ? new Date(loggedAt) : new Date(),
     }).returning();
@@ -466,7 +465,7 @@ export const getDashboardSummary = async (
 };
 
 export const updateHealthLog = async (
-  req: AuthRequest,
+  _req: AuthRequest,
   res: Response,
   next: NextFunction
 ) => {
@@ -482,7 +481,7 @@ export const updateHealthLog = async (
 };
 
 export const deleteHealthLog = async (
-  req: AuthRequest,
+  _req: AuthRequest,
   res: Response,
   next: NextFunction
 ) => {
@@ -498,7 +497,7 @@ export const deleteHealthLog = async (
 };
 
 export const exportHealthData = async (
-  req: AuthRequest,
+  _req: AuthRequest,
   res: Response,
   next: NextFunction
 ) => {

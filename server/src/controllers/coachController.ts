@@ -7,7 +7,7 @@ export const getDailyMessage = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.userId;
+    const _userId = req.userId;
 
     // TODO: Fetch user's coach preference and generate message using AI
 
@@ -29,7 +29,7 @@ export const getMotivationalPrompt = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.userId;
+    const _userId = req.userId;
     const { context } = req.query;
 
     // TODO: Generate context-aware motivational prompt based on user's data
@@ -53,7 +53,7 @@ export const getAchievementCelebration = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.userId;
+    const _userId = req.userId;
     const { achievementType, value } = req.body;
 
     // TODO: Generate celebration message for the achievement

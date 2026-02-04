@@ -7,7 +7,7 @@ export const createGoal = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.userId;
+    const _userId = req.userId;
     const { type, target, timeline, isShared } = req.body;
 
     // TODO: Create goal in database
@@ -35,8 +35,8 @@ export const getGoals = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.userId;
-    const { status } = req.query;
+    const _userId = req.userId;
+    const _status = req.query.status;
 
     // TODO: Fetch goals from database
 
@@ -80,8 +80,8 @@ export const updateGoal = async (
   next: NextFunction
 ) => {
   try {
-    const { id } = req.params;
-    const updates = req.body;
+    const _id = req.params.id;
+    const _updates = req.body;
 
     // TODO: Update goal in database
 
@@ -100,7 +100,7 @@ export const deleteGoal = async (
   next: NextFunction
 ) => {
   try {
-    const { id } = req.params;
+    const _id = req.params.id;
 
     // TODO: Delete goal from database
 

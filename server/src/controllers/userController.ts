@@ -31,8 +31,8 @@ export const updateProfile = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.userId;
-    const { name, age, height, weight } = req.body;
+    const _userId = req.userId;
+    const _profileData = req.body;
 
     // TODO: Update user profile in database
 
@@ -51,8 +51,8 @@ export const updatePrivacySettings = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.userId;
-    const { waterIntake, exercise, weight, sleep, vitalSigns, goals } = req.body;
+    const _userId = req.userId;
+    const _privacySettings = req.body;
 
     // TODO: Update privacy settings in database
 
@@ -71,8 +71,8 @@ export const updateCoachPreference = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.userId;
-    const { coachStyle } = req.body;
+    const _userId = req.userId;
+    const _coachStyle = req.body.coachStyle;
 
     // TODO: Update coach preference in database
 
@@ -91,7 +91,7 @@ export const deleteAccount = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.userId;
+    const _userId = req.userId;
 
     // TODO: Delete user and all associated data
 
