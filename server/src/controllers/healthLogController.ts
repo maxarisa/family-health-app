@@ -191,7 +191,7 @@ export const logBloodPressure = async (
       systolic: parseInt(systolic),
       diastolic: parseInt(diastolic),
       pulse: pulse ? parseInt(pulse) : null,
-      context: context || null,
+      notes: context || null,
       notes: notes || null,
       loggedAt: loggedAt ? new Date(loggedAt) : new Date(),
     }).returning();
@@ -228,7 +228,7 @@ export const logHeartRate = async (
     // Save heart rate log to database
     const [hrLog] = await db.insert(heartRateLogs).values({
       userId,
-      bpm: parseInt(bpm),
+      heartRate: parseInt(bpm),
       type: type || 'resting',
       notes: notes || null,
       loggedAt: loggedAt ? new Date(loggedAt) : new Date(),
@@ -455,7 +455,7 @@ export const getDashboardSummary = async (
             systolic: latestBP[0].systolic,
             diastolic: latestBP[0].diastolic,
           } : null,
-          heartRate: latestHR[0]?.bpm || null,
+          heartRate: latestHR[0]?.heartRate || null,
           temperature: latestTemp[0]?.temperature || null,
         },
       },
