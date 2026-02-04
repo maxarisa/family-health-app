@@ -1,0 +1,9 @@
+[build]
+builder = "NIXPACKS"
+
+[build.nixpacksConfigPath]
+configFile = "nixpacks.toml"
+
+[deploy]
+startCommand = "cd server && npm start"
+restartPolicyType = "ON_FAILURE"
