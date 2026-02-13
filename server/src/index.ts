@@ -4,6 +4,8 @@ import helmet from 'helmet';
 import compression from 'compression';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
@@ -12,6 +14,9 @@ import healthLogRoutes from './routes/healthLogs.js';
 import goalRoutes from './routes/goals.js';
 import coachRoutes from './routes/coach.js';
 import { errorHandler } from './middleware/errorHandler.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -41,6 +46,15 @@ app.use('/api/families', familyRoutes);
 app.use('/api/health-logs', healthLogRoutes);
 app.use('/api/goals', goalRoutes);
 app.use('/api/coach', coachRoutes);
+
+// Serve static files from client build (production)
+const clientDistPath = path.join(__dirname, '../../client/dist');
+app.use(express.static(clientDistPath));
+
+// SPA fallback - serve index.html for all non-API routes
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(clientDistPath, 'index.html'));
+});
 
 // Error handling middleware
 app.use(errorHandler);
